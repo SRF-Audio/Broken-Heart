@@ -6,6 +6,7 @@ public class Grounded : MonoBehaviour
     
 {
     GameObject Player;
+    public bool isTouching;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,20 +19,21 @@ public class Grounded : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2d(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Ground")
+        if (collision.collider.tag == "Ground")
         {
-            Player.GetComponent<PlayerController>
+            Player.GetComponent<PlayerController>().IsGrounded = true;
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ground")
         {
-
+            Player.GetComponent<PlayerController>().IsGrounded = false;
         }
     }
+
+
 }
