@@ -1081,3 +1081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658679fb665bd894e9d0aeb1c1f08b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameArray:
+  - {fileID: -5899927303015767666, guid: 201507976e731054ca16752baaae4418, type: 3}
+  - {fileID: 6824852377700625651, guid: 201507976e731054ca16752baaae4418, type: 3}

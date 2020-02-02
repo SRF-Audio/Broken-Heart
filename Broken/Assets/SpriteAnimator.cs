@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SpriteAnimator : MonoBehaviour
 {
-    private Sprite[] frameArray;
+    [SerializeField]private Sprite[] frameArray;
     private int currentFrame;
     private float timer;
+    private float Framerate = .1f;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         
     }
 
@@ -19,11 +22,11 @@ public class SpriteAnimator : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(timer >= 1f)
+        if(timer >= Framerate)
         {
-            timer -= 1f;
-            currentFrame++;
-            gameObject.GetComponent<SpriteRenderer>().sprite = frameArray[currentFrame]; 
+            timer -= Framerate;
+            currentFrame = (currentFrame +1) % frameArray.Length;
+            spriteRenderer.sprite = frameArray[currentFrame]; 
                
         }
     }
